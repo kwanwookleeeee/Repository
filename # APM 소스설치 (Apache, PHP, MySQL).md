@@ -1,5 +1,5 @@
-[# APM 소스설치 (Apache, PHP, MySQL).md](https://github.com/kwanwookleeeee/Repository/files/10181515/APM.Apache.PHP.MySQL.md)
 # APM 소스설치 (Apache, PHP, MySQL)
+<br>
 
 - 사용버전
 
@@ -7,6 +7,8 @@
 |--------|-------|----|------|---|--------|-----|---|
 |2009|1.1.1b|8.43|2.4.54|1.6.5|1.6.1|8.0.31|7.3.3|
 
+<br>
+<br>
 
 ## MySQL 설치  
 
@@ -52,6 +54,8 @@ Enter password:(비밀번호 입력)
 ```
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호 입력'; (비밀번호 변경 : 대문자,특수문자,영어,숫자)
 ```
+<br>
+<br>
 
 ## Apache 설치
 #
@@ -148,6 +152,8 @@ WantedBy=multi-user.target
 ```
 # systemctl httpd start
 ```
+<br>
+<br>
 
 ## PHP 설치
 #
@@ -232,5 +238,5 @@ mysqli.default_socket = /var/lib/mysql/mysql.sock   <--- 추가
 <?php phpinfo(); ?>
 ```
 ```
-# systemctl start httpd
+# systemctl start httpdx
 ```
