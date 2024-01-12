@@ -14,7 +14,7 @@
 
 #
 MySQL 다운로드 링크 = https://dev.mysql.com/downloads/mysql
-```
+```bash
 # mkdir -p /usr/local/src/mysql8
 ```
 ```
