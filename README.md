@@ -3,13 +3,15 @@ AIX
 ● VG, LV, FS 생성
 -
 
-'''
+```
 #lspv	[[VG를 생성 할 PV 확인]]
-'''
-
-#bootinfo -s hdisk2		[[PV 용량 확인]]
- 
-#smitty vg		[[볼륨그룹 생성]]
+```
+```
+bootinfo -s hdisk2		[[PV 용량 확인]]
+```
+```
+smitty vg		[[볼륨그룹 생성]]
+```
 - Add a Volume Group
 - Add an Original Volume Group
 	VOLUME GROUP name                                  [oraclevg]
