@@ -72,5 +72,3 @@ smitty vg
 ```
 - Remove a Volume Group
 - VOLUME GROUP name                                  [oraclevg]   
-
-
