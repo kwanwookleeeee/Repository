@@ -10,7 +10,7 @@
 <br>
 <br>
 
-## MySQL 설치  
+# MySQL 설치  
 
 #
 MySQL 다운로드 링크 = https://dev.mysql.com/downloads/mysql
