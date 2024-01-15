@@ -4,7 +4,7 @@ AIX
 -
 
 ```
-#lspv	[[VG를 생성 할 PV 확인]]
+lspv	[[VG를 생성 할 PV 확인]]
 ```
 ```
 bootinfo -s hdisk2		[[PV 용량 확인]]
