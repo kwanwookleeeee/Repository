@@ -6,7 +6,9 @@ AIX
 ```
 lspv	
 ```
+```
 VG를 생성 할 PV 확인
+```
 ```
 bootinfo -s hdisk2		
 ```
