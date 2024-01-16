@@ -6,7 +6,7 @@ AIX
 ```
 lspv	
 ```
-VG를 생성 할 PV 확인 '''bash
+VG를 생성 할 PV 확인 ```bash
 ```
 bootinfo -s hdisk2		
 ```
