@@ -1,0 +1,90 @@
+# AIX Volume Management
+
+## Creation of Volume Group (VG), Logical Volume (LV), and File System (FS)
+
+### 1. Verify Available Physical Volumes (PVs)
+```bash
+lspv
+```
+> Confirms which PVs are available for VG creation.
+
+### 2. Check the Capacity of a Physical Volume
+```bash
+bootinfo -s hdisk2
+```
+> Checks capacity of `hdisk2`.
+
+### 3. Create a Volume Group
+```bash
+smitty vg
+```
+- **Add a Volume Group**
+- **Add an Original Volume Group**
+  - **VOLUME GROUP name:** `oraclevg`
+  - **PHYSICAL VOLUME names:** `hdisk1`
+  - **Force the creation of a volume group?** `yes`
+
+### 4. Create a Logical Volume
+```bash
+smitty lv
+```
+- **Add a Logical Volume**
+  - **VOLUME GROUP name:** `oraclevg`
+  - **Number of LOGICAL PARTITIONS:** `50` (Confirm the size of PP before specifying)
+  - **PHYSICAL VOLUME names:** `hdisk1`
+  - **Logical volume TYPE:** `jfs2`
+
+### 5. Confirm VG and LV Creation
+```bash
+lsvg -o | lsvg -il
+```
+
+### 6. Create a File System
+```bash
+smitty jfs2
+```
+- **Add an Enhanced Journaled File System**
+  - **SIZE of file system**
+    - **Unit Size:** `Gigabytes`
+    - **Number of units:** `100`
+  - **MOUNT POINT:** `/oracle`
+  - **Mount AUTOMATICALLY at system restart?** `yes`
+
+### 7. Mount the File System
+```bash
+mount /oracle
+```
+
+### 8. Verify the File System
+```bash
+df -gt
+```
+
+## Removal of VG, LV, and FS
+
+### 1. Unmount the File System
+```bash
+umount /oracle
+```
+
+### 2. Remove the File System
+```bash
+smitty jfs2
+```
+- **Remove an Enhanced Journaled File System**
+  - **FILE SYSTEM name**
+  - **Remove Mount Point:** `yes`
+
+### 3. Remove a Logical Volume
+```bash
+smitty lv
+```
+- **Remove a Logical Volume**
+  - **LOGICAL VOLUME name:** (Select LV)
+
+### 4. Remove a Volume Group
+```bash
+smitty vg
+```
+- **Remove a Volume Group**
+  - **VOLUME GROUP name:** `oraclevg`
