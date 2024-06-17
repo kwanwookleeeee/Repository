@@ -6,7 +6,7 @@
 ```bash
 lspv
 ```
-> VG 생성을 위한 사용 가능 PV 확인.
+> VG 생성을 위해 사용 가능한 PV를 확인합니다.
 
 ### 2. 물리 볼륨의 용량 확인
 ```bash
@@ -18,47 +18,50 @@ bootinfo -s hdisk2
 ```bash
 smitty vg
 ```
-- **볼륨 그룹 추가**
-- **원본 볼륨 그룹 추가**
-  - **볼륨 그룹 이름:** `oraclevg`
-  - **물리 볼륨 이름:** `hdisk1`
-  - **볼륨 그룹 생성 강제 여부:** `yes`
+- **Add a Volume Group**
+- **Add an Original Volume Group**
+  - **VOLUME GROUP name:** `oraclevg`
+  - **PHYSICAL VOLUME names:** `hdisk1`
+  - **Force the creation of a volume group?** `yes`
 
 ### 4. 논리 볼륨 생성
 ```bash
 smitty lv
 ```
-- **논리 볼륨 추가**
-  - **볼륨 그룹 이름:** `oraclevg`
-  - **논리 파티션 개수:** `50` (PP 크기 확인 후 지정)
-  - **물리 볼륨 이름:** `hdisk1`
-  - **논리 볼륨 유형:** `jfs2`
+- **Add a Logical Volume**
+  - **VOLUME GROUP name:** `oraclevg`
+  - **Number of LOGICAL PARTITIONS:** `50` (PP 크기 확인 후 지정)
+  - **PHYSICAL VOLUME names:** `hdisk1`
+  - **Logical volume TYPE:** `jfs2`
 
 ### 5. VG 및 LV 생성 확인
 ```bash
 lsvg -o | lsvg -il
 ```
+> 생성된 VG와 LV를 확인합니다.
 
 ### 6. 파일 시스템 생성
 ```bash
 smitty jfs2
 ```
-- **강화된 저널 파일 시스템 추가**
-  - **파일 시스템 크기**
-    - **단위 크기:** `Gigabytes`
-    - **단위 수:** `100`
-  - **마운트 지점:** `/oracle`
-  - **시스템 재시작 시 자동 마운트:** `yes`
+- **Add an Enhanced Journaled File System**
+  - **SIZE of file system**
+    - **Unit Size:** `Gigabytes`
+    - **Number of units:** `100`
+  - **MOUNT POINT:** `/oracle`
+  - **Mount AUTOMATICALLY at system restart?** `yes`
 
 ### 7. 파일 시스템 마운트
 ```bash
 mount /oracle
 ```
+> `/oracle` 파일 시스템을 마운트합니다.
 
 ### 8. 파일 시스템 확인
 ```bash
 df -gt
 ```
+> 파일 시스템을 확인합니다.
 
 ## VG, LV, FS 제거
 
@@ -66,25 +69,26 @@ df -gt
 ```bash
 umount /oracle
 ```
+> `/oracle` 파일 시스템 마운트를 해제합니다.
 
 ### 2. 파일 시스템 제거
 ```bash
 smitty jfs2
 ```
-- **강화된 저널 파일 시스템 제거**
-  - **파일 시스템 이름**
-  - **마운트 지점 제거:** `yes`
+- **Remove an Enhanced Journaled File System**
+  - **FILE SYSTEM name**
+  - **Remove Mount Point:** `yes`
 
 ### 3. 논리 볼륨 제거
 ```bash
 smitty lv
 ```
-- **논리 볼륨 제거**
-  - **논리 볼륨 이름:** (LV 선택)
+- **Remove a Logical Volume**
+  - **LOGICAL VOLUME name:** (Select LV)
 
 ### 4. 볼륨 그룹 제거
 ```bash
 smitty vg
 ```
-- **볼륨 그룹 제거**
-  - **볼륨 그룹 이름:** `oraclevg`
+- **Remove a Volume Group**
+  - **VOLUME GROUP name:** `oraclevg`
